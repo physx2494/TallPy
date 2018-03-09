@@ -31,4 +31,4 @@ async def on_message(message):
         await client.send_message(message.channel, 'Good job!')
 
 
-client.run("NDIxNTQ4MzgxNjE0MjQzODUw.DYO2Qw.Ld8GxHePs6WhOa0Z6MeIb3qFJYs") #Replace token with your bots token
+client.run("REDACTED") #Replace token with your bots token

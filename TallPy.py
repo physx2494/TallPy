@@ -2,6 +2,14 @@ from xml.etree import ElementTree as ET
 import sys
 import urllib.request
 
+##Type of Reports
+
+menu = """
+Select from the type of report do you wish to access:
+1. Outstandings
+2. Stock Query
+3. Cash Flow  
+"""
 
 
 ##Validation if no intergers are inputed
