@@ -1,50 +1,55 @@
 from xml.etree import ElementTree as ET
 import sys
-import urllib.request
-
-##Type of Reports
-
-menu = """
-Select from the type of report do you wish to access:
-1. Outstandings
-2. Stock Query
-3. Cash Flow  
-"""
 
 
 ##Validation if no intergers are inputed
-while True:
-    x = input('Enter party name: ')
-    if x.isdigit() == True:
-        print('Please enter a name.')
-        continue
-    else:
-        break
 
-#Initialization of ElementTree
-tree = ET.parse('Bills.xml')
-root = tree.getroot()
+def A():
+    while True:
+        A.x = input('Enter party name: ')
+        if A.x.isdigit() == True:
+            print('Please enter a name.')
+            continue
+        else:
+            return A.x
+            break
 
-#Finding the list/numbers of each Tag
-billfixed = tree.findall('BILLFIXED')
-billcl = tree.findall('BILLCL')
-billdue = tree.findall('BILLDUE')
-billoverdue = tree.findall('BILLOVERDUE')
+'''def main_loop(to_search, blah):
+    initialize_x(to_search)
+'''
 
-#Iterating and ziping the orphaned childs
-for fixed, cl, due, overdue in zip(billfixed, billcl, billdue, billoverdue):
-    #Getting it all lower case and then comparing
-    if x.lower() == fixed.find('BILLPARTY').text.lower():
+'''def initialize_x(value)
+    x = value
+'''
+#Initialization of ElementTree and Finding the list/numbers of each Tag
+def B():
+    tree = ET.parse('Bills.xml')
+    root = tree.getroot()
+    B.billfixed = tree.findall('BILLFIXED')
+    B.billcl = tree.findall('BILLCL')
+    B.billdue = tree.findall('BILLDUE')
+    B.billoverdue = tree.findall('BILLOVERDUE')
 
-        date = fixed.find('BILLDATE').text
-        ref= fixed.find('BILLREF').text
-        party = fixed.find('BILLPARTY').text
+def C():
+    y=A.x
+    #Itering and ziping the orphaned childs
+    for fixed, cl, due, overdue in zip(B.billfixed, B.billcl, B.billdue, B.billoverdue):
+        #Getting it all lower case and then comparing
+        if y.lower() == fixed.find('BILLPARTY').text.lower():
 
-        print(' * [Inv # {}] [Date {}] [Amt {}] [Due date {}] [Overdue by {} days]'.format(
-        ref, date, cl.text, due.text, overdue.text
-))
-        print('******************************************************************')
-    else:
-        print('Party name not found!')
-        sys.exit()
+            date = fixed.find('BILLDATE').text
+            ref= fixed.find('BILLREF').text
+            party = fixed.find('BILLPARTY').text
 
+            print(' * [Inv # {}] [Date {}] [Amt {}] [Due date {}] [Overdue by {} days]'.format(
+            ref, date, cl.text, due.text, overdue.text
+    ))
+            print('******************************************************************')
+        else:
+            print('Party name not found!')
+            sys.exit()
+
+if __name__ == '__main__':
+    A()
+    B()
+    C()
