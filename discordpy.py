@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import logging
-
+import bottesting as bt
 
 logging.basicConfig(level=logging.INFO)
 
@@ -19,16 +19,25 @@ async def on_ready():
 #    if message.content == "cookie":
 #        await client.send_message(message.channel, ":cookie:") #responds with Cookie emoji when someone says "cookie"
 
+
 @client.event
 async def on_message(message):
     if message.content.startswith('.cr'):
-        await client.send_message(message.channel, 'Enter the name of the creditor')
-        for i in range(4):
-            msg = await client.wait_for_message(author=message.author, content='$stop')
-            fmt = '{} left to go...'
-            await client.send_message(message.channel, fmt.format(3 - i))
-
-        await client.send_message(message.channel, 'Good job!')
+        await client.send_message(message.channel, 'Type Party Name')
+        msg = await client.wait_for_message(author=message.author)
+        i_got = bt.lmao(msg.content)
+        await client.send_message(message.channel, i_got)
 
 
-client.run("REDACTED") #Replace token with your bots token
+#use the following with bottesting.py
+''''@client.event
+async def on_message(message):
+    if message.content.startswith('.cr'):
+        await client.send_message(message.channel, 'Enter anything...')
+        msg = await client.wait_for_message(author=message.author)
+        i_got = bt.lmao(msg.content)
+        await client.send_message(message.channel, i_got)
+'''
+
+
+client.run("NDIxNTQ4MzgxNjE0MjQzODUw.DYO2Qw.Ld8GxHePs6WhOa0Z6MeIb3qFJYs") #Replace token with your bots token

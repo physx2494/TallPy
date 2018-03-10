@@ -4,7 +4,7 @@ import sys
 
 ##Validation if no intergers are inputed
 
-def A():
+'''def A():
     while True:
         A.x = input('Enter party name: ')
         if A.x.isdigit() == True:
@@ -13,10 +13,13 @@ def A():
         else:
             return A.x
             break
-
-'''def main_loop(to_search, blah):
-    initialize_x(to_search)
 '''
+
+
+def A(party_name):
+    A.x = party_name
+    return A.x
+
 
 '''def initialize_x(value)
     x = value
@@ -31,8 +34,9 @@ def B():
     B.billoverdue = tree.findall('BILLOVERDUE')
 
 def C():
-    y=A.x
-    #Itering and ziping the orphaned childs
+    y= A.x
+    b = []
+    #Itering and zipping the orphaned children
     for fixed, cl, due, overdue in zip(B.billfixed, B.billcl, B.billdue, B.billoverdue):
         #Getting it all lower case and then comparing
         if y.lower() == fixed.find('BILLPARTY').text.lower():
@@ -41,15 +45,22 @@ def C():
             ref= fixed.find('BILLREF').text
             party = fixed.find('BILLPARTY').text
 
-            print(' * [Inv # {}] [Date {}] [Amt {}] [Due date {}] [Overdue by {} days]'.format(
+           b = ' * [Inv # {}] [Date {}] [Amt {}] [Due date {}] [Overdue by {} days]'.format(
             ref, date, cl.text, due.text, overdue.text
-    ))
+    )
             print('******************************************************************')
         else:
             print('Party name not found!')
             sys.exit()
 
-if __name__ == '__main__':
-    A()
+
+def main_loop(for_a):
+    A(for_a)
     B()
     C()
+    from_c =
+    return
+
+
+if __name__ == '__main__':
+    main_loop()
