@@ -4,26 +4,13 @@ TallyPy
 
 This is a set of Python scripts powered that provides interoperability with Tally ERP9 by analysing data using remote XML.
 
-![Chat Preview](http://i.imgur.com/lgRe8z4.png)
 
 ---
 
 ## Features
 - Lightweight
 - Discord Bot Integration
-- Other awesome features yet to be implemented
 
-.
-![User Features](http://i.imgur.com/WbF1fi2.png)
-
-.
-![Admin Features](http://i.imgur.com/xQFaadt.png)
-
-
-####There are 3 admin levels:
-- **Helper:** Can delete chat messages
-- **Moderator:** The above plus the ability to kick and ban users
-- **Administrator:** All the above plus send global alerts and promote/demote users
 
 ---
 
